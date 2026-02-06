@@ -1,0 +1,29 @@
+site_name: hwpx-saas 사용자 가이드
+site_url: https://7rohj.github.io/hwpx-saas-guide/
+repo_url: https://github.com/7rohj/hwpx-saas-guide
+repo_name: hwpx-saas-guide
+
+theme:
+  name: material
+  language: ko
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+
+nav:
+  - 시작하기:
+      - 소개: index.md
+      - 설치/실행: getting-started.md
+      - 빠른 예제: quickstart.md
+  - 사용법:
+      - JSON 스펙: json-spec.md
+      - 표(Table): table.md
+      - 이미지(Image): image.md
+  - FAQ: faq.md
