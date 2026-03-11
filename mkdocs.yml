@@ -3,6 +3,9 @@ site_url: https://7rohj.github.io/hwpx-saas-guide/
 repo_url: https://github.com/7rohj/hwpx-saas-guide
 repo_name: hwpx-saas-guide
 
+copyright: >
+  © 2026 padostudio. All rights reserved.
+
 theme:
   name: material
   language: ko
@@ -10,20 +13,63 @@ theme:
     - navigation.sections
     - navigation.expand
     - content.code.copy
+    - content.code.annotate
     - search.highlight
+    - search.suggest
+    - toc.integrate 
+
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드
+
+  font:
+    text: Pretendard
+    code: JetBrains Mono
 
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
   - toc:
       permalink: true
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - 시작하기:
       - 소개: index.md
-      - 설치/실행: getting-started.md
-      - 빠른 예제: quickstart.md
-  - 사용법:
-      - JSON 스펙: json-spec.md
-      - 표(Table): table.md
-      - 이미지(Image): image.md
-  - FAQ: faq.md
+      - 빠른 시작: quickstart.md
+
+  - 가이드:
+      - "1. 텍스트(text)":
+          - "1.1 텍스트생성":         1_1_text_create.md
+          - "1.2 글꼴 및 문자 스타일": 1_2_font_and_text_style.md
+          - "1.3 문단 레이아웃":       1_3_paragraph_layout.md
+          - "1.4 목록":               1_4_text_list.md
+          
+      - "2. 표(table)":
+          - "2.1 표생성기본구조":    2_1_table_create.md
+          - "2.2 표레이아웃":        2_2_table_layout.md
+          - "2.3 표테두리스타일":    2_3_table_border_style.md
+          - "2.4 셀스타일":         2_4_table_cell_style.md
+          - "2.5 셀병합":           2_5_table_cell_merge.md
+
+      - "3. 이미지(Image)": image.md
+
