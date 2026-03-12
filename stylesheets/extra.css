@@ -1,0 +1,159 @@
+/* ========================================
+   Modern Notion-style section headers
+   ======================================== */
+
+/* 공통 컬러 토큰 */
+:root {
+  --nav-accent: #6366f1;          /* indigo */
+  --nav-accent-soft: rgba(99,102,241,0.12);
+  --nav-text-strong: #0f172a;     /* slate-900 */
+  --nav-text-muted: #64748b;      /* slate-500 */
+}
+
+/* 다크모드 */
+[data-md-color-scheme="slate"] {
+  --nav-accent: #818cf8;
+  --nav-accent-soft: rgba(129,140,248,0.18);
+  --nav-text-strong: #e5e7eb;
+  --nav-text-muted: #94a3b8;
+}
+
+
+/* ===== 섹션 헤더 ===== */
+.md-nav__item--section > .md-nav__link {
+  position: relative;
+
+  /* 배경 제거 → 핵심 */
+  background: transparent;
+  border: none;
+
+  /* 타이포 중심 */
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--nav-text-muted);
+
+  /* 간격 */
+  margin: 18px 12px 6px;
+  padding: 6px 0;
+
+  transition: color 120ms ease;
+}
+
+
+/* 왼쪽 얇은 블루 라인 (노션 핵심 포인트) */
+.md-nav__item--section > .md-nav__link::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--nav-accent);
+  opacity: 0.85;
+}
+
+
+/* hover 시 텍스트만 살짝 강조 */
+.md-nav__item--section > .md-nav__link:hover {
+  color: var(--nav-text-strong);
+}
+
+
+/* ===== 하위 메뉴 정리 ===== */
+
+/* 하위 메뉴 여백 */
+.md-nav__item--section > nav.md-nav {
+  margin: 0 0 10px 0;
+  padding-left: 2px;
+}
+
+/* 일반 링크 모던하게 */
+.md-nav__item .md-nav__link {
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+/* hover */
+.md-nav__item .md-nav__link:hover {
+  background: var(--nav-accent-soft);
+}
+
+/* 현재 페이지 강조 (Linear 느낌) */
+.md-nav__link--active {
+  background: var(--nav-accent-soft);
+  color: var(--nav-accent) !important;
+  font-weight: 700;
+}
+
+/* ========================================
+   Sidebar & TOC vertical rhythm tighten
+   ======================================== */
+
+/* 좌측 네비 전체 줄간격 ↓ */
+.md-nav {
+  line-height: 1.25;
+}
+
+/* 좌측 메뉴 링크 높이 ↓ */
+.md-nav__link {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* 섹션 헤더 위/아래 간격 ↓ */
+.md-nav__item--section > .md-nav__link {
+  margin: 14px 12px 4px;
+  padding: 4px 0;
+}
+
+/* 하위 메뉴 블록 간격 ↓ */
+.md-nav__item--section > nav.md-nav {
+  margin-bottom: 6px;
+}
+
+
+/* ========================================
+   Right TOC (목차 패널) 압축
+   ======================================== */
+
+/* TOC 전체 줄간격 ↓ */
+.md-nav--secondary .md-nav__list {
+  line-height: 1.2;
+}
+
+/* TOC 항목 패딩 ↓ */
+.md-nav--secondary .md-nav__link {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* TOC 항목 사이 간격 ↓ */
+.md-nav--secondary .md-nav__item {
+  margin: 1px 0;
+}
+
+
+/* ========================================
+   너무 붙어 보이지 않게 미세 보정
+   ======================================== */
+
+.md-nav__link:hover {
+  border-radius: 6px;
+}
+
+/* 사이드바(좌/우) 스크롤바로 인한 미세 흔들림 방지 */
+.md-sidebar__scrollwrap {
+  overflow-y: scroll;          /* 항상 스크롤 영역 확보 */
+  scrollbar-gutter: stable;    /* 스크롤바 공간 고정 */
+}
+
+/* 우측 목차(Secondary sidebar)도 동일 */
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
